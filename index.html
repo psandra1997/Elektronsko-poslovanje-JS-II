@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kalkulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>JavaScript kalkulator</h2>
+
+<div class="calculator">
+<h4>1. broj:</h4><input class="ubaci1" type="number" ><br>
+<h4>2. broj:</h4><input class="ubaci2" type="number" ><br>
+<h4>Izaberi operaciju:</h4><select id="operacija">
+    <option value="sabiranje">Sabiranje</option>
+    <option value="oduzimanje">Oduzimanje</option>
+    <option value="mnozenje">Mnozenje</option>
+    <option value="deljenje">Deljenje</option>
+    </select><br><br>
+<button class="submit">Submit</button>
+
+</div>
+<div class="rezultat">
+    <h3>Rezultat: </h3>
+    <h1 class="rezultat_h1">0000</h1>
+</div>
+
+<script>
+const submit=document.querySelector('.submit');
+
+submit.addEventListener('click', calculator);
+
+function calculator(){
+    const ubaci1 =document.querySelector('.ubaci1');
+    const ubaci2 =document.querySelector('.ubaci2');
+    const rezultat_h1= document.querySelector('.rezultat_h1');
+    const operacija= document.querySelector('#operacija');
+
+    let br1 = parseFloat(ubaci1.value);
+    let br2 = parseFloat(ubaci2.value);
+    let rezult;
+
+    switch(operacija.value){
+        case "sabiranje" :
+        rezult=br1+br2;
+        rezultat_h1.style.display="block";
+        rezultat_h1.innerHTML=rezult;
+        break;
+        case "oduzimanje" :
+        rezult=br1-br2;
+        rezultat_h1.style.display="block";
+        rezultat_h1.innerHTML=rezult;
+        break;
+        case "mnozenje" :
+        rezult=br1*br2;
+        rezultat_h1.style.display="block";
+        rezultat_h1.innerHTML=rezult;
+        break;
+        case "deljenje" :
+        rezult=br1/br2;
+        rezultat_h1.style.display="block";
+        rezultat_h1.innerHTML=rezult;
+        break;
+    }
+
+
+}
+   
+
+</script>
+
+</body>
+</html>
